@@ -1,0 +1,22 @@
+body{
+    background-color: black;
+}
+.header-div{
+    display: flex;
+    width: 100px;
+    
+}
+.header{
+    display: flex;
+    color: aqua;
+    font-family: Arial;
+    font-weight: bolder;
+    align-items: center;
+    padding-left: 10px;
+    text-decoration: underline;  
+}
+.hackathon-image{
+ height: 50px;
+ border-radius: 25px;
+ 
+}
