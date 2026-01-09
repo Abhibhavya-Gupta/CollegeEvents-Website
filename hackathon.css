@@ -18,3 +18,15 @@
     margin-left:10px;
     font-size: 25px;
 }
+
+.header-div{
+    display: flex;
+    width: 100px;
+    
+}
+
+.hackathon-image{
+ height: 50px;
+ border-radius: 25px;
+ 
+}
