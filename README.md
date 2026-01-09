@@ -8,3 +8,6 @@ Tech stacks I'm currently using : HTML, CSS, Javascript
 
 Moving forward to transform this website into a full stack web-application...
 I'am new in Frontend Development so if anyone like to contribute to my project, It will be a great help.
+
+see the project here:
+Live Project Demo:https://abhibhavya-gupta.github.io/CollegeEvents-Website/
