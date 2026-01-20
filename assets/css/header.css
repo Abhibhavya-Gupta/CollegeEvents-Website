@@ -65,7 +65,7 @@
     box-shadow: 0px 0px 10px rgb(255, 255, 255);
 }
 .get-started-button:active{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(224, 222, 55);
     opacity: .75;
 }
 .right-section{

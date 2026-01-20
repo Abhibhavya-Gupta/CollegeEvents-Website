@@ -1,32 +1,38 @@
-.sections{
+.table-of-contents
+{
     display: flex;
-    color: rgb(0, 0, 0);
-    font-family: Arial;
-    font-weight: bolder;
-    align-items: center;
-    padding-left: 10px;
-    text-decoration: underline;  
-    background-color: rgba(187, 212, 212, 0.616);
-    padding-bottom: 400px;
-    border-radius: 5px;
+    gap: 10px;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 75px;
 }
-.hackathon-image{
- height: 50px;
- border-radius: 25px;
+.main-section{
+    /* display: flex; */
+    height: 400px;
+    background-color: rgb(211, 179, 240);
+    border-radius: 4px;
 }
-.hackathon-text{
-    margin-left:10px;
+.header-section{
+    display: flex;
+    width: 50px;
+    gap: 10px;
+}
+.header-section:hover,
+.header-section:active{
+    cursor: pointer;
+}
+.text{
+    margin-top: 0;
+    padding-top: 15px;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 25px;
+    font-weight: 600;
+    text-decoration: underline;
 }
+.image{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 50px;
+    border-radius: 25px;
 
-.header-div{
-    display: flex;
-    width: 100px;
-    
-}
-
-.hackathon-image{
- height: 50px;
- border-radius: 25px;
- 
 }
