@@ -26,3 +26,8 @@
     box-shadow: 0px 0px 10px rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
 }
+.started{
+    background-color: aliceblue;
+    color: black;
+    transform: scale(1.33);
+}

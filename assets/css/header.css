@@ -44,7 +44,11 @@
 {
     display: flex;
     justify-content: center;
-    color: antiquewhite;
+    color: rgb(221, 254, 255);
+    font-size:17px;
+    font-weight: 600;
+    
+    
 }
 .get-started-button{
     background-color:  rgb(219, 238, 53);
