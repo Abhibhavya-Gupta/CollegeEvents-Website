@@ -72,10 +72,8 @@
     background-color: rgb(224, 222, 55);
     opacity: .75;
 }
-.right-section{
-    
-}
-.user-profile{
+
+.avatar{
     width: 40px;
     height: 40px;
     border-radius: 20px;
@@ -83,6 +81,58 @@
     border: 2px solid rgb(255, 255, 255);
     cursor: pointer;
 }
+.profile {
+  position: relative;
+  display: inline-block; /* shrink-wrap to image */
+}
+
+/* avatar */
+.avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* tooltip hidden by default */
+.tooltip {
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) translateY(8px);
+  bottom: 100%; /* place above the image */
+  white-space: nowrap;
+  padding: 5px 15px 20px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  font-size: 17px;
+  border-radius: 6px;
+  top:10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  z-index: 10;
+  
+}
+
+/* small arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.85) transparent transparent transparent;
+}
+
+/* show on hover (or focus for keyboard accessibility) */
+.profile:hover .tooltip,
+.profile:focus-within .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
 
 .whats-next-text{
     color: rgb(22, 91, 91);
