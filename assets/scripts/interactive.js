@@ -22,3 +22,19 @@ get_started_button=document.getElementById('get-started-button');
 get_started_button.addEventListener('click',()=>{
     get_started_button.classList.add('started');
 });
+
+// const menuButton=document.querySelector('.js-hamburger-menu-div');
+// menuButton.addEventListener('click',()=>{
+// // menuButton.classList.toggle('menu-toggle');
+
+// });
+document.getElementById("menu").addEventListener('click',()=>{
+    OnMenuClick();
+});
+
+function OnMenuClick()
+{
+    document.getElementById("menu").classList.toggle("icon");
+    document.getElementById("nav").classList.toggle("change");
+
+}

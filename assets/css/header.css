@@ -11,13 +11,84 @@
     
 }
 
-.hamburger-menu-div{
-   background-color: rgb(236, 239, 245);
-   width: 40px;
-   height: 40px;
-   margin-left: 10px;
-   border-radius: 2px;
-   cursor: pointer;
+
+#menu{
+    width: 30px;
+    height: 35px;
+    margin:10px 0 0 20px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.bar{
+height: 5px;
+width: 100%;
+background-color: rgb(255, 255, 255);
+display: block;
+border-radius: 5px;
+transition: 0.3s ease;
+z-index: 200;
+
+}
+
+#bar1{
+    transform: translateY(-4px);
+}
+
+#bar3{
+    transform: translateY(4px);
+}
+.nav{
+    padding:0;
+    margin: 0 30px;
+    transition: 1s ease;
+    display: none;
+}
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+
+}
+.nav li{
+    list-style: none;
+    padding:16px 0;
+}
+.nav li a:hover{
+    border: 1px solid white;
+}
+.icon .bar{
+    background-color: #fff;
+}
+.icon #bar1{
+    transform: translateY(4px) rotate(-45deg);
+    z-index: 201;
+}
+.icon #bar3{
+    transform: translateY(6px) rotate(45deg);
+    z-index: 201;
+}
+.icon #bar2{
+    opacity: 0;
+}
+.change{
+    background-color: rgb(121, 151, 162);
+    height: 100vh;
+    margin: 0;
+    position: absolute;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+
+.menu-toggle{
+    /* background-color: black; */
 }
 
 .middle-section{
@@ -100,7 +171,7 @@
   transform: translateX(-50%) translateY(8px);
   bottom: 100%; /* place above the image */
   white-space: nowrap;
-  padding: 5px 15px 20px;
+  padding: 3px 15px 22px;
   background: rgba(0,0,0,0.85);
   color: #fff;
   font-size: 17px;
