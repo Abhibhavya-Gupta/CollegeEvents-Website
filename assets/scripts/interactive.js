@@ -17,10 +17,17 @@ workshops_button=document.querySelector('.workshops-button');
 workshops_button.addEventListener('click',()=>{
 document.getElementById('workshops-section').scrollIntoView({behavior:'smooth'});
 });
-
+let form_section=document.getElementById('form');
 get_started_button=document.getElementById('get-started-button');
 get_started_button.addEventListener('click',()=>{
     get_started_button.classList.add('started');
+    form_section.innerHTML=`<form>
+    <p>Form</p>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>`;
+    form_section.classList.add("myform");
 });
 
 // const menuButton=document.querySelector('.js-hamburger-menu-div');
@@ -38,3 +45,4 @@ function OnMenuClick()
     document.getElementById("nav").classList.toggle("change");
 
 }
+

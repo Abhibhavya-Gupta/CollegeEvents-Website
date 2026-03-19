@@ -25,3 +25,25 @@
     grid-template-columns: 2fr 1.5fr 1fr;
     justify-content: center;
 }
+.form-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -45px;
+}
+.myform::after{
+}
+.myform{
+    display: flex;;
+    justify-content: center;
+    width: 200px;
+    padding: 5px;
+    height: fit-content;
+    background-color: rgb(228, 251, 255);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 17px;
+    border: 3px solid rgb(65, 124, 192);
+    border-radius: 6px;
+    z-index: 101;
+}
