@@ -47,3 +47,19 @@
     border-radius: 6px;
     z-index: 101;
 }
+.myform button{
+    margin-top: 5px;
+    padding: 3px;
+    background-color: rgb(126, 228, 117);
+    border-radius: 2px;
+    border: 1px solid rgb(108, 109, 107);
+    font-size: 15px;
+    cursor: pointer;
+}
+.myform input{
+    padding: 3px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 1px solid black;
+}

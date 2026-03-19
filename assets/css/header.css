@@ -116,7 +116,8 @@ z-index: 200;
     display: flex;
     justify-content: center;
     color: rgb(221, 254, 255);
-    font-size:17px;
+    font-size:19px;
+    white-space: nowrap;
     font-weight: 600;
     
     

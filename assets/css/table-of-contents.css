@@ -7,15 +7,43 @@
     margin-top: 75px;
 }
 .main-section{
-    /* display: flex; */
+    position: relative;
     height: 500px;
     background-color: rgb(198, 138, 255);
     border-radius: 4px;
+}
+.Event{
+    position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 100px;
+  left: 25px;
+  
+}
+.Event img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border:5px solid rgb(36, 27, 27);
+}
+
+.Event, .Event img{
+    border-radius: 20px;
+}
+.Event .event-price{
+    color: rgb(5, 126, 5);
+}
+.Event img:hover{
+    border-color: rgb(231, 235, 235);
+}
+.Event .event-about:hover{
+    color: aliceblue;
 }
 .header-section{
     display: flex;
     width: 50px;
     gap: 10px;
+    height: 60px;
 }
 .header-section:hover,
 .header-section:active{
@@ -34,5 +62,4 @@
     margin-top: 5px;
     height: 50px;
     border-radius: 25px;
-
 }

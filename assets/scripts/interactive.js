@@ -22,12 +22,14 @@ get_started_button=document.getElementById('get-started-button');
 get_started_button.addEventListener('click',()=>{
     get_started_button.classList.add('started');
     form_section.innerHTML=`<form>
-    <p>Form</p>
+    <p>Register User</p>
         <input type="text" placeholder="Username" required>
         <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+        <button type="submit">Create Account</button>
+        <p>Already a user?<span><a href="#"> login</a></span><p>
     </form>`;
     form_section.classList.add("myform");
+    
 });
 
 // const menuButton=document.querySelector('.js-hamburger-menu-div');

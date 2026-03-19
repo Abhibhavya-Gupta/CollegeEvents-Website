@@ -1,9 +1,114 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>CollegeEvents/Profile</title>
-    </head>
-    <body>
-        <p>this is personal info page</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .profile-container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+        }
+
+        .profile-info {
+            margin-top: 10px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        .edit-btn {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+
+    <div class="profile-header">
+        <img src="../assets/images/mypic.jpg" alt="User">
+        <div>
+            <h2>Abhibhavya Gupta</h2>
+            <p>Student</p>
+        </div>
+    </div>
+
+    <div class="profile-info">
+        <div class="info-row">
+            <span class="info-label">Email:</span>
+            <span class="info-value">abhibhavya.gupta2005@gmail.com</span>
+        </div>
+
+        <div class="info-row">
+            <span class="info-label">Phone:</span>
+            <span class="info-value">+91 8000977736</span>
+        </div>
+
+        <!-- <div class="info-row">
+            <span class="info-label">Location:</span>
+            <span class="info-value">Jaipur, India</span>
+        </div> -->
+
+        <div class="info-row">
+            <span class="info-label">Bio:</span>
+            <span class="info-value">Passionate about coding and problem solving.</span>
+        </div>
+    </div>
+
+    <button class="edit-btn">Edit Profile</button>
+
+</div>
+
+</body>
 </html>

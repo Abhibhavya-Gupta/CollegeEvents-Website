@@ -9,8 +9,10 @@
     </head>
     <body style="padding-bottom: 200px;
     background-color: rgb(198, 239, 242);">
-
-    <img class="background-image" src="assets/images/image1.jpg">
+    <div class="background-image">
+        <img class="background-image" src="assets/images/image1.jpg">
+    </div>
+    
 
     <header class="header">
          <div class="left-section">
@@ -22,9 +24,9 @@
                 </div>
                 <ul class="nav" id="nav">
                     <li><a href="index.html">Home</a></li>
-                     <li><a href="pages/profile.html">Profile</a></li>
+                     <li><a href="pages/profile.html" target="_blank">Profile</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="pages/settings.html">Settings</a></li>
+                    <li><a href="pages/settings.html" target="_blank">Settings</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -44,7 +46,7 @@
        </div>
        <div class="right-section">
             <div class="profile">
-                <a href="pages/profile.html"> <img class="avatar" src="assets/images/mypic.jpg"></a>
+                <a href="pages/profile.html" target="_blank"> <img class="avatar" src="assets/images/mypic.jpg"></a>
                
                 <span class="tooltip">Abhibhavya Gupta</span>
             </div>
@@ -76,20 +78,46 @@
        <div>
        </div>
 
-       <!--4 Vertical layouts-->
+       <!--4 horiz layouts-->
        <div class="table-of-contents">
         <div class="main-section" id="hackathons-section">
             <div class="header-section">
                 <img class="image" src="assets/images/hackathon-image.jpg" >
                 <p class="text">Hackathons</p>
+
+                <!-- we will have to make lots of divs when many events => make here a main-container(GRID) -->
+                <div class="Event">
+                    <a href="https://www.sphinx.org.in/" target="_blank">
+                        <img src="assets/images/mnit-hackathon-image.png" alt="Hack1" class="mnit-image">
+                         <div class="event-about">
+                        <h2>Sphinx - Techno-Fest</h2>
+                        <h3>Location : MNIT Jaipur </h3>
+                        <h3>Fees : <span class="event-price">Rs.250</span> </h3>
+                        </div>
+                    </a>
+                   
+                </div>
             </div>
-        
         </div>
           <div class="main-section" id="sports-section">
             <div class="header-section">
                 <img class="image" src="assets/images/sports-image.jpg" >
                 <p class="text">Sports</p>
             </div>
+            <div class="Event">
+                                <!-- we will have to make lots of divs when many events => make here a main-container(GRID) -->
+
+                    <a href="https://pravah.skit.ac.in/skit-pravah-2026-AAVEG" target="_blank">
+                        <img src="assets/images/sports-event1.jpg" alt="sports1" class="sports-image">
+                        <div class="event-about">
+                        <h2>Pravah - Aaveg</h2>
+                        <h3>Location : SKIT Jaipur </h3>
+                        <h3>Fees : <span class="event-price">Free</span> </h3>
+                        </div>
+                        
+                    </a>
+                   
+                </div>
         </div>
           <div class="main-section" id="club-events-section">
             <div class="header-section">
@@ -104,7 +132,8 @@
              </div>
         </div>
        </div>
-        
+       <br>
+        <footer><h4>-Thank You for using this Website! :)</h4></footer>
        <!--About Me Section-->
        <!-- <div class="about-me-section">
         <p class="about-me">
