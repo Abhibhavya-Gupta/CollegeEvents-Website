@@ -31,3 +31,25 @@
     color: black;
     transform: scale(1.33);
 }
+
+/* Tablet devices (768px and below) */
+@media (max-width: 768px) {
+    .buttons-section{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        height: auto;
+    }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .buttons-section{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .hackathon-button, 
+    .sports-button, .club-events-button, .workshops-button{
+        font-size: 16px;
+        padding: 8px 8px 8px 8px;
+    }
+}

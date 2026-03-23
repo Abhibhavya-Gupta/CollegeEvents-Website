@@ -34,7 +34,7 @@
 .myform::after{
 }
 .myform{
-    display: flex;;
+    display: flex;
     justify-content: center;
     width: 200px;
     padding: 5px;
@@ -62,4 +62,18 @@
     font-size: 15px;
     border-radius: 2px;
     border: 1px solid black;
+}
+
+@media (max-width: 480px) {
+    body{
+        padding-bottom: 100px;
+    }
+    .myform{
+        width: 90%;
+        font-size: 14px;
+    }
+    .whats-next-text{
+        font-size: 16px;
+        margin-left: 5px;
+    }
 }
