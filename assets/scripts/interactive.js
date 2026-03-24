@@ -17,11 +17,15 @@ workshops_button=document.querySelector('.workshops-button');
 workshops_button.addEventListener('click',()=>{
 document.getElementById('workshops-section').scrollIntoView({behavior:'smooth'});
 });
+
+let isformOn=false;
 let form_section=document.getElementById('form');
 get_started_button=document.getElementById('get-started-button');
 get_started_button.addEventListener('click',()=>{
     get_started_button.classList.add('started');
+    isformOn=true;
     form_section.innerHTML=`<form>
+    
     <p>Register User</p>
         <input type="text" placeholder="Username" required>
         <input type="password" placeholder="Password" required>
@@ -29,8 +33,15 @@ get_started_button.addEventListener('click',()=>{
         <p>Already a user?<span><a href="#"> login</a></span><p>
     </form>`;
     form_section.classList.add("myform");
+    get_started_button.classList.add("started");
     
 });
+// const form_close_button=document.querySelector(".form-close-button");
+// form_close_button.addEventListener('click',()=>{
+//     form_section..innerHTML=``;
+//     // form_section.classList.add("form-closed");
+//     get_started_button.classList.remove("started");
+// });
 
 // const menuButton=document.querySelector('.js-hamburger-menu-div');
 // menuButton.addEventListener('click',()=>{

@@ -30,6 +30,7 @@
     background-color: aliceblue;
     color: black;
     transform: scale(1.33);
+    opacity: 0;
 }
 
 /* Tablet devices (768px and below) */
