@@ -39,11 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             $insertQuery = "INSERT INTO users (full_name, email, phone, password_hash, role) VALUES ('$fullName', '$email', '$phone', '$passwordHash', 'user')";
             
-            if (mysqli_query($conn, $insertQuery)) {
-                redirect('login.php?registered=1');
-            } else {
-                $errors[] = 'Error creating account. Please try again.';
-            }
+            header('Location: login.php?registered=1');
+            exit();
         }
     }
 }
@@ -79,27 +76,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="alert alert-success"><?php echo e($success); ?></div>
                         <?php endif; ?>
 
-                        <form method="post" onsubmit="return validateRegisterForm()">
+                        <form method="post" onsubmit="return validateRegisterForm(event)" novalidate>
                             <div class="mb-3">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-control" name="full_name" value="<?php echo e($_POST['full_name'] ?? ''); ?>" required>
+                                <label class="form-label" for="full_name">Full Name</label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo e($_POST['full_name'] ?? ''); ?>" required>
+                                <div class="invalid-feedback" id="full_name_error"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" value="<?php echo e($_POST['email'] ?? ''); ?>" required>
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo e($_POST['email'] ?? ''); ?>" required>
+                                <div class="invalid-feedback" id="email_error"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone" value="<?php echo e($_POST['phone'] ?? ''); ?>">
+                                <label class="form-label" for="phone">Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone" maxlength="10" inputmode="numeric" value="<?php echo e($_POST['phone'] ?? ''); ?>" placeholder="10-digit phone number">
+                                <div class="invalid-feedback" id="phone_error"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" required>
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="invalid-feedback" id="password_error"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" required>
+                                <label class="form-label" for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                <div class="invalid-feedback" id="confirm_password_error"></div>
                             </div>
+                            <div id="register_error" class="alert alert-danger d-none mt-3"></div>
                             <button type="submit" class="btn btn-primary w-100">Register</button>
                         </form>
 
@@ -113,17 +116,98 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
-        function validateRegisterForm() {
+        function showFieldError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + '_error');
+
+            if (!input || !errorBox) {
+                return;
+            }
+
+            if (message) {
+                input.classList.add('is-invalid');
+                errorBox.textContent = message;
+                errorBox.style.display = 'block';
+            } else {
+                input.classList.remove('is-invalid');
+                errorBox.textContent = '';
+                errorBox.style.display = 'none';
+            }
+        }
+
+        function validateRegisterForm(event) {
+            const fullName = document.getElementById('full_name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm_password').value;
+            const errorBox = document.getElementById('register_error');
+
+            showFieldError('full_name', '');
+            showFieldError('email', '');
+            showFieldError('phone', '');
+            showFieldError('password', '');
+            showFieldError('confirm_password', '');
+
+            const errors = [];
+
+            if (!fullName) {
+                errors.push('Full name is required.');
+            }
+
+            if (!email) {
+                errors.push('Email is required.');
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.push('Please enter a valid email address.');
+            }
+
+            if (phone && !/^\d{10}$/.test(phone)) {
+                errors.push('Phone number must be exactly 10 digits.');
+            }
+
             if (password.length < 6) {
-                alert('Password must be at least 6 characters long.');
+                errors.push('Password must be at least 6 characters long.');
+            }
+
+            if (!confirmPassword) {
+                errors.push('Please confirm your password.');
+            } else if (password !== confirmPassword) {
+                errors.push('Passwords do not match.');
+            }
+
+            if (errors.length > 0) {
+                if (event) {
+                    event.preventDefault();
+                }
+
+                errorBox.classList.remove('d-none');
+                errorBox.innerHTML = '<ul class="mb-0"><li>' + errors.join('</li><li>') + '</li></ul>';
+
+                if (!fullName) {
+                    showFieldError('full_name', 'Full name is required.');
+                }
+                if (!email) {
+                    showFieldError('email', 'Email is required.');
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showFieldError('email', 'Please enter a valid email address.');
+                }
+                if (phone && !/^\d{10}$/.test(phone)) {
+                    showFieldError('phone', 'Phone number must be exactly 10 digits.');
+                }
+                if (password.length < 6) {
+                    showFieldError('password', 'Password must be at least 6 characters long.');
+                }
+                if (!confirmPassword) {
+                    showFieldError('confirm_password', 'Please confirm your password.');
+                } else if (password !== confirmPassword) {
+                    showFieldError('confirm_password', 'Passwords do not match.');
+                }
+
                 return false;
             }
-            if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return false;
-            }
+
+            errorBox.classList.add('d-none');
+            errorBox.innerHTML = '';
             return true;
         }
     </script>

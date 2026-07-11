@@ -56,15 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="alert alert-success">Registration successful. Please sign in.</div>
                         <?php endif; ?>
 
-                        <form method="post">
+                        <form method="post" onsubmit="return validateLoginForm(event)" novalidate>
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" required>
+                                <label class="form-label" for="login_email">Email</label>
+                                <input type="email" class="form-control" id="login_email" name="email" required>
+                                <div class="invalid-feedback" id="login_email_error"></div>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" name="password" required>
+                                <label class="form-label" for="login_password">Password</label>
+                                <input type="password" class="form-control" id="login_password" name="password" required>
+                                <div class="invalid-feedback" id="login_password_error"></div>
                             </div>
+                            <div id="login_error" class="alert alert-danger d-none mt-3"></div>
                             <button type="submit" class="btn btn-success w-100">Login</button>
                         </form>
 
@@ -76,5 +79,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+
+    <script>
+        function showLoginFieldError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + '_error');
+
+            if (!input || !errorBox) {
+                return;
+            }
+
+            if (message) {
+                input.classList.add('is-invalid');
+                errorBox.textContent = message;
+                errorBox.style.display = 'block';
+            } else {
+                input.classList.remove('is-invalid');
+                errorBox.textContent = '';
+                errorBox.style.display = 'none';
+            }
+        }
+
+        function validateLoginForm(event) {
+            const email = document.getElementById('login_email').value.trim();
+            const password = document.getElementById('login_password').value;
+            const errorBox = document.getElementById('login_error');
+
+            showLoginFieldError('login_email', '');
+            showLoginFieldError('login_password', '');
+
+            const errors = [];
+
+            if (!email) {
+                errors.push('Email is required.');
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.push('Please enter a valid email address.');
+            }
+
+            if (!password) {
+                errors.push('Password is required.');
+            }
+
+            if (errors.length > 0) {
+                if (event) {
+                    event.preventDefault();
+                }
+
+                errorBox.classList.remove('d-none');
+                errorBox.innerHTML = '<ul class="mb-0"><li>' + errors.join('</li><li>') + '</li></ul>';
+
+                if (!email) {
+                    showLoginFieldError('login_email', 'Email is required.');
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showLoginFieldError('login_email', 'Please enter a valid email address.');
+                }
+
+                if (!password) {
+                    showLoginFieldError('login_password', 'Password is required.');
+                }
+
+                return false;
+            }
+
+            errorBox.classList.add('d-none');
+            errorBox.innerHTML = '';
+            return true;
+        }
+    </script>
 </body>
 </html>
