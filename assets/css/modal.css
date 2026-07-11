@@ -1,0 +1,150 @@
+/* Body Styles */
+body {
+    padding-bottom: 200px;
+    background-color: rgb(198, 239, 242);
+}
+
+/* Modal/Form Section Styles */
+.form-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.form-section.show {
+    display: flex;
+    pointer-events: auto;
+}
+
+/* Modal Container */
+.form-container {
+    margin: auto;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    pointer-events: auto;
+}
+
+/* Close Button */
+.close-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.close-form:hover {
+    color: #333;
+}
+
+/* Form Content */
+.form-container h3 {
+    margin-top: 0;
+}
+
+.form-container p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Form Buttons Container */
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Form Action Links */
+.form-button {
+    text-decoration: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.form-button.signup {
+    background: #0d6efd;
+}
+
+.form-button.signup:hover {
+    background: #0b5ed7;
+}
+
+.form-button.login {
+    background: #198754;
+}
+
+.form-button.login:hover {
+    background: #157347;
+}
+
+/* Logout Button in Header */
+.logout-button {
+    color: white;
+    text-decoration: none;
+    background: #dc3545;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-right: 15px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #bb2d3b;
+}
+
+/* Welcome Message Styles */
+.welcome-container {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.welcome-greeting {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.welcome-subtitle {
+    font-size: 1.1rem;
+    color: #f7e7ff;
+    margin: 10px 0 0 0;
+    font-style: italic;
+    font-weight: 600;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.16);
+}
+
+/* Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
